@@ -4,18 +4,20 @@ import { Img } from "../types"
     
 
 const PictureCard:FunctionComponent<{
-    picture:Img
+    picture:Img,
+    size:string
 }> = ({
     picture:{
         name,
         description,
         image_path,
         category,
-    }
+    },
+    size:size
 }) => {
   return (
     <div className="flex items-center justify-center">
-      <img src={'/api/generator?name=' + image_path + '&size=' + 'big'} alt=""/>
+      <img src={'/api/generator?name=' + image_path + '&size=' + size} alt=""/>
     </div>
   )
 }
