@@ -3,7 +3,6 @@ import path from 'path'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import sharp from 'sharp'
 import sizeView from './sizeView'
-import { triggerAsyncId } from 'async_hooks'
 
 
 async function resize(filePath:string, resizedFilePath: string, size:string){
@@ -13,11 +12,16 @@ async function resize(filePath:string, resizedFilePath: string, size:string){
     } else {
         console.log('The cache file does not exist.');
         const sizeData = await sizeView(size);
+        if (!sizeData){
+          console.log("__Size not found!");
+          return false;
+        }
         await sharp(filePath)
         .resize(sizeData.width, sizeData.height, {fit: 'inside'})
         .toFile(resizedFilePath);
     }
   } catch (err) {
+      console.log("Postgres error!");
       return false;
   }
   return true;
