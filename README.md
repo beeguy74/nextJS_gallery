@@ -7,7 +7,20 @@ list of sizes:
 
 ## Getting Started
 
-First, run the development server:
+1) You must have postgreSQL. You should restore database and globals from dump files:
+
+```bash
+psql -U username -f globals.sql
+psql -U username -f gallery_dump.sql
+```
+
+2) Install the dependencies
+
+```bash
+npm install
+```
+
+3) than run the development server:
 
 ```bash
 npm run dev
