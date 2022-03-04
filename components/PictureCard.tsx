@@ -24,7 +24,7 @@ const PictureCard:FunctionComponent<{ picture:Img, deviceType:string }> =
   const handleClick = (event: MyMouseEvent) => {
     const eventSize = event.target.dataset['size'];
     setSize(eventSize);
-  }
+  };
   return (
     <div suppressHydrationWarning={true}>
        {process.browser && <Popup trigger={

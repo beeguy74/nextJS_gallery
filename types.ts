@@ -1,4 +1,6 @@
 
+import React from "react";
+
 export interface Img{
   name:string,
   image_path:string,
@@ -10,6 +12,6 @@ export interface MyEventTarget extends EventTarget {
   }
 }
 
-export interface MyMouseEvent extends MouseEvent {
+export interface MyMouseEvent extends React.MouseEvent<HTMLButtonElement> {
   target: MyEventTarget
 }
