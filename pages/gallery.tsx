@@ -16,7 +16,7 @@ const gallery = ({deviceType}: InferGetServerSidePropsType<typeof getServerSideP
     {
       pictures.map(picture=>(
         <div className="col-span-12 sm:col-span-6 lg:col-span4 p-2">
-          <PictureCard picture={picture} size={size} key={picture.name}/>
+          <PictureCard picture={picture} deviceType={deviceType} key={picture.name}/>
         </div>
       ))
     }
