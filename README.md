@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # nextJS_gallery
-=======
 This is a [Next.js](https://nextjs.org/) project. I made a simple image gallery with api/generator that take "name" and "size" by get querry "/api/generator?size=big&name=test.png"
 list of sizes:
 "big" - 800 * 600,  "med" - 640 * 480,  "min" - 320 * 240,  "mic" - 150 * 150
