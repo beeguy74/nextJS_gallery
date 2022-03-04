@@ -1,5 +1,14 @@
 import { Img } from "./types";
 
+
+export const sizesArr:string[] = 
+[
+  'mic',
+  'min',
+  'med',
+  'big'
+];
+
 export const pictures:Img[] = [
   {
     name: "Avenue",

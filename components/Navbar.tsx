@@ -1,6 +1,8 @@
 import { FunctionComponent, useEffect, useState } from "react"
 import Link from 'next/link'
 import { useRouter } from "next/router"
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { getServerSideProps } from "../pages"
 
 const NavItem:FunctionComponent<{
   activeItem:string,
@@ -19,7 +21,8 @@ const NavItem:FunctionComponent<{
   )
 }
 
-const Navbar = (props) => {
+
+const Navbar = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
   const [activeItem, setActiveItem] = useState<string>('')
 
