@@ -32,22 +32,23 @@ export default async function generator(req: NextApiRequest, res:NextApiResponse
       case 'GET':
         const filePath = path.resolve('.', 'gallery/' + req.query.name)
 
-        const err = !fs.existsSync(filePath);
+        let err = !fs.existsSync(filePath);
+        let imageBuffer: any;
         console.log(`${filePath} ${err ? 'does not exist' : 'exists'}`);
-        if (err){
-          res.status(404).end(); //was not found
-        }
-        else {
+        if (!err){
           const resizedFilePath = path.resolve('.', 'cache/' + req.query.size + '_' + req.query.name);
           const test = await resize(filePath, resizedFilePath, '' + req.query.size);
           if (test !== true){
-            res.status(500).end(); //server error
+            err = true; //server error
             break ;
           }
-          const imageBuffer = fs.readFileSync(resizedFilePath);
-          res.setHeader('Content-Type', 'image/jpg');
-          res.send(imageBuffer);
+          imageBuffer = fs.readFileSync(resizedFilePath);
         }
+        if (err){
+          imageBuffer = fs.readFileSync(path.resolve('.', 'public/imageNotFound.png'));
+        }
+        res.setHeader('Content-Type', 'image/jpg');
+        res.send(imageBuffer);
         break ;
       default:
         res.status(405).end(); //Method Not Allowed

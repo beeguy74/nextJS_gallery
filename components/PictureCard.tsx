@@ -26,11 +26,11 @@ const PictureCard:FunctionComponent<{ picture:Img, deviceType:string }> =
   }
   return (
     <Popup trigger={
-        <img src={'/api/generator?name=' + image_path + '&size=' + defaultSize} alt=""/>
+        <img src={'/api/generator?name=' + image_path + '&size=' + defaultSize} alt={description}/>
       } modal on={'click'}
     >
       <div className="grid place-items-center">
-      <img src={'/api/generator?name=' + image_path + '&size=' + size} alt=""/>
+      <img src={'/api/generator?name=' + image_path + '&size=' + size} alt={description}/>
       <div className="grid grid-cols-3 gap-5 m-2">
       {
         sizesArr.map((elSize:string) => {
