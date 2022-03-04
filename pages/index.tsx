@@ -27,9 +27,12 @@ const gallery = ({deviceType}: InferGetServerSidePropsType<typeof getServerSideP
 
 export const getServerSideProps:GetServerSideProps = async (context) => {
   const UA = context.req.headers['user-agent'];
-  const isMobile = Boolean(UA.match(
-    /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-  ))
+  let isMobile = false;
+  if (UA){
+    isMobile = Boolean(UA.match(
+      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+    ));
+  }
   
   return {
     props: {
