@@ -28,20 +28,17 @@ const Navbar = (props) => {
 
   useEffect(()=>{
     if (pathname === "/")
-      setActiveItem('About')
-    else if (pathname === "/gallery")
       setActiveItem('Gallery')
-    else if (pathname === "/resume")
-      setActiveItem('Resume')
+    else if (pathname === "/about")
+      setActiveItem('About')
   }, [])
 
   return (
     <div className="flex justify-between px-5 py-3 my-3">
       <span className="font-bold text-green-400 text-xl border-b-4 border-green-400">{activeItem}</span>
       <div className="font-lg flex space-x-3">
-        <NavItem activeItem="activeItem" setActiveItem={setActiveItem} name="About" route="/" />
-        <NavItem activeItem="activeItem" setActiveItem={setActiveItem} name="Gallery" route="/gallery" />
-        <NavItem activeItem="activeItem" setActiveItem={setActiveItem} name="Resume" route="/resume" />
+        <NavItem activeItem="activeItem" setActiveItem={setActiveItem} name="About" route="/about" />
+        <NavItem activeItem="activeItem" setActiveItem={setActiveItem} name="Gallery" route="/" />
       </div>
     </div>
   )

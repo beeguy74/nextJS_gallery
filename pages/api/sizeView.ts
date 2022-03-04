@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 
 async function db_view(size: string) {
     const data = await prisma.sizes.findFirst({where: {size_name: size}});
-    console.log(size, "THIS IS SIZE_____________________________!")
     
     return data;
 }
