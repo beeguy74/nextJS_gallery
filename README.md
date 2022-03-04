@@ -12,13 +12,18 @@ psql -U username -f globals.sql
 psql -U username -f gallery_dump.sql
 ```
 
-2) Install the dependencies
+2) in file ".env" yo must set DATABASE_URL for prisma ORM
+```
+DATABASE_URL="postgresql://next_gallery:gallery_pass@localhost:5432/gallery"
+```
+
+3) Install the dependencies
 
 ```bash
 npm install
 ```
 
-3) than run the development server:
+4) than run the development server:
 
 ```bash
 npm run dev
