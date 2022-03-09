@@ -16,10 +16,10 @@ DATABASE_URL="postgresql://{YOUR_USER}:{YOUR_USER_PASS}@localhost:5432/gallery"
 npm install
 ```
 
-3) You must have postgreSQL. You should restore database:
+3) You must have postgreSQL. You should restore database and build app:
 
 ```bash
-npx prisma migrate dev --name init
+npm run build
 ```
 
 4) than run the development server:
