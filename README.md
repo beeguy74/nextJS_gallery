@@ -5,22 +5,21 @@ list of sizes:
 
 ## Getting Started
 
-1) You must have postgreSQL. You should restore database and globals from dump files:
-
-```bash
-psql -U username -f globals.sql
-psql -U username -f gallery_dump.sql
+1) in file ".env" yo must set DATABASE_URL for prisma ORM
+```
+DATABASE_URL="postgresql://{YOUR_USER}:{YOUR_USER_PASS}@localhost:5432/gallery"
 ```
 
-2) in file ".env" yo must set DATABASE_URL for prisma ORM
-```
-DATABASE_URL="postgresql://next_gallery:gallery_pass@localhost:5432/gallery"
-```
-
-3) Install the dependencies
+2) Install the dependencies
 
 ```bash
 npm install
+```
+
+3) You must have postgreSQL. You should restore database:
+
+```bash
+npx prisma migrate dev --name init
 ```
 
 4) than run the development server:

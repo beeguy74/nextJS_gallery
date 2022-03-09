@@ -18,6 +18,7 @@ async function resize(filePath:string, resizedFilePath: string, size:string){
         .toFile(resizedFilePath);
     }
   } catch (err) {
+      console.log("Catch db error!", err)
       return false;
   }
   return true;
@@ -34,6 +35,7 @@ export default async function generator(req: NextApiRequest, res:NextApiResponse
           const resizedFilePath = path.resolve('.', 'cache/' + req.query.size + '_' + req.query.name);
           const test = await resize(filePath, resizedFilePath, '' + req.query.size);
           if (test !== true){
+            console.log("Server error!")
             err = true; //server error
             break ;
           }
@@ -41,6 +43,7 @@ export default async function generator(req: NextApiRequest, res:NextApiResponse
         }
         if (err){
           imageBuffer = fs.readFileSync(path.resolve('.', 'public/imageNotFound.png'));
+          console.log("imageNotFound sended!")
         }
         res.setHeader('Content-Type', 'image/jpg');
         res.send(imageBuffer);
